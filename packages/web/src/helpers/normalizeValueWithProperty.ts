@@ -7,6 +7,7 @@ import { isWeb } from '@tamagui/constants'
 
 import { getAllSelectors } from './insertStyleRule'
 import { normalizeColor } from './normalizeColor'
+import { normalizeStylePropKeys } from './normalizeStylePropKeys'
 
 const cache = {}
 
@@ -27,26 +28,11 @@ export function normalizeValueWithProperty(value: any, property?: string): any {
     res = `${value}px`
   } else if (isWeb && property !== undefined && stringNumbers[property]) {
     res = `${res}`
-  } else if (property && property in colorProps) {
+  } else if (property && property in normalizeStylePropKeys) {
     res = normalizeColor(value)
     cache[value] = res
   }
   return res
-}
-
-// TODO react-native-web-lite
-
-const colorProps = {
-  backgroundColor: true,
-  borderColor: true,
-  borderTopColor: true,
-  borderRightColor: true,
-  borderBottomColor: true,
-  borderLeftColor: true,
-  color: true,
-  shadowColor: true,
-  textDecorationColor: true,
-  textShadowColor: true,
 }
 
 const stringNumbers = {
@@ -63,6 +49,7 @@ const unitlessNumbers = {
   columnCount: true,
   flex: true,
   flexGrow: true,
+  flexBasis: true,
   flexOrder: true,
   flexPositive: true,
   flexShrink: true,

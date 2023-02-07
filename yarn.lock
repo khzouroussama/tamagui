@@ -5030,6 +5030,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@tamagui/create-theme@workspace:packages/create-theme":
+  version: 0.0.0-use.local
+  resolution: "@tamagui/create-theme@workspace:packages/create-theme"
+  dependencies:
+    "@tamagui/build": ^1.2.12
+    "@tamagui/web": ^1.2.12
+  languageName: unknown
+  linkType: soft
+
 "@tamagui/create-themes@^1.2.12, @tamagui/create-themes@workspace:packages/create-themes":
   version: 0.0.0-use.local
   resolution: "@tamagui/create-themes@workspace:packages/create-themes"
